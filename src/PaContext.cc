@@ -28,7 +28,6 @@ int PaCallback(const void *input, void *output, unsigned long frameCount,
   double inTimestamp = timeInfo->inputBufferAdcTime > 0.0 ?
     timeInfo->inputBufferAdcTime :
     paContext->getCurTime() - paContext->getInLatency(); // approximation for timestamp of first sample
-  double outTimestamp = timeInfo->outputBufferDacTime;
   paContext->checkStatus(statusFlags);
   // printf("PaCallback output %p, frameCount %d\n", output, frameCount);
   int inRetCode = paContext->hasInput() && paContext->readPaBuffer(input, frameCount, inTimestamp) ? paContinue : paComplete;

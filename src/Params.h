@@ -23,10 +23,9 @@
 namespace streampunk {
 
 bool checkOptions(napi_env env, napi_value options) {
-  napi_status status;
   napi_valuetype type = napi_undefined;
 
-  status = napi_typeof(env, options, &type);
+  napi_typeof(env, options, &type);
   return type == napi_undefined ? false : true;
 }
 
